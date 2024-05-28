@@ -1,0 +1,67 @@
+
+@font-face {
+  font-family: "Kurier";
+  src: url("/fonts/KurierLight-Regular.otf");
+  font-weight: 300;
+}
+@font-face {
+    font-family: "Kurier";
+    src: url("/fonts/Kurier-Regular.otf");
+    font-weight: 400;
+  }
+@font-face {
+  font-family: "Kurier";
+  src: url("/fonts/KurierMedium-Regular.otf");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Kurier";
+  src: url("/fonts/KurierHeavy-Regular.otf");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Kurier";
+  src: url("/fonts/Kurier-Bold.otf");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Theano-Didot";
+  src: url("/fonts/TheanoDidot-Regular.ttf");
+  font-weight: normal;
+}
+
+$primary: #34231e;
+$secondary: #242b20;
+$gray: #bebcaf;
+$neutral: #dccfb5;
+$font-body: 'Kurier';
+$font-heading: 'Theano-Didot';
+$xs-text: 1rem;
+$sm-text: 1.3rem; 
+$base-text: 1.6rem;
+$l-text: 1.8rem;
+$xl-text: 2rem;
+$xxl-text: 2.5rem;
+$xxxl-text: 3rem;
+$base-lh: 1.5;
+$intermdiate-lh: 1.7;
+$bp-sm: 36rem;
+$bp-md: 48rem;
+$bp-l: 64rem;
+$bp-xl: 75rem;
+$bp-2xl: 85.375rem;
+$bp-3xl: 120rem; 
+$bp-4xl: 160rem;
+$breakpoints: (
+  "mq-sm": "(min-width: #{$bp-sm})",
+  "mq-md": "(min-width: #{$bp-md})",
+  "mq-l": "(min-width: #{$bp-l})",
+  "mq-xl": "(min-width: #{$bp-xl})",
+  "mq-2xl": "(min-width: #{$bp-2xl})",
+  "mq-3xl": "(min-width: #{$bp-3xl})",
+  "mq-4xl": "(min-width: #{$bp-4xl})",
+  "mq-retina": "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)"
+);
+$queries: ("mq-md": 4, "mq-l":4.5, "mq-xl":5, "mq-2xl":5.5, "mq-3xl":6, "mq-4xl":6.5);
+
+$sm-container-spacings: ("mq-sm": 3, "mq-md": 3.5, "mq-l":4, "mq-xl":4.5, "mq-2xl":5, "mq-3xl":5.5, "mq-4xl":6);

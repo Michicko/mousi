@@ -1,0 +1,319 @@
+@use "../abstract/variable" as *;
+@use "../abstract/mixins" as *;
+
+.nav {
+  height: 10rem;
+  width: 100%;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: space-between;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 50;
+
+  @include breakpoints(mq-3xl) {
+    height: 10rem * 1.5;
+  }
+
+  &__logo {
+    font-size: $xl-text;
+    font-weight: 500;
+    text-decoration: none;
+    font-family: $font-body;
+
+    @include breakpoints(mq-3xl) {
+      font-size: $xl-text * 1.5;
+    }
+
+    &--dark {
+      color: $secondary;
+    }
+
+    &--light {
+      color: $neutral;
+    }
+  }
+
+  &__menu-btn {
+    position: relative;
+    z-index: 100;
+    height: 2.5rem;
+    width: 2.5rem;
+    background: transparent;
+    outline: none;
+    border: none;
+
+    @include breakpoints(mq-l) {
+      display: none;
+    }
+
+    .line {
+      height: 2px;
+      width: 100%;
+      background: $gray;
+      position: relative;
+      background: transparent;
+
+      &::before,
+      &::after {
+        position: absolute;
+        content: "";
+        display: block;
+        height: 2px;
+        width: 100%;
+        top: 1rem;
+        left: 0;
+        background: $gray;
+        transition: all 0.4s ease-in;
+      }
+
+      &::after {
+        top: -0.5rem;
+      }
+    }
+
+    // fix the hover state for only desktop and focus and active using class isOpened for only mobile
+
+    &:hover .line::after,
+    &--isOpened .line::after {
+      top: 0;
+    }
+
+    &:hover .line::before,
+    &--isOpened .line::before {
+      top: 0;
+    }
+    // &:hover .line::after, &.isOpened .line::after, &:focus .line::after,  &:active .line::after {
+    //     top: 0;
+    // }
+
+    // &:hover .line::before, &.isOpened .line::before,  &:focus .line::before, &:active .line::before{
+    //     top: 0;
+    // }
+
+    &--isOpened .line::after {
+      transform: rotate(45deg);
+    }
+
+    &--isOpened .line::before {
+      transform: rotate(-45deg);
+    }
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    display: none;
+
+    @include breakpoints(mq-l) {
+      display: flex;
+
+      & > *:not(:last-child) {
+        margin-right: 6rem;
+      }
+    }
+
+    @include breakpoints(mq-l) {
+      & > *:not(:last-child) {
+        margin-right: 8rem;
+      }
+    }
+
+    @include breakpoints(mq-l) {
+      & > *:not(:last-child) {
+        margin-right: 10rem;
+      }
+    }
+
+    @include breakpoints(mq-3xl) {
+      & > *:not(:last-child) {
+        margin-right: 12rem;
+      }
+    }
+
+    @include breakpoints(mq-4xl) {
+      & > *:not(:last-child) {
+        margin-right: 15rem;
+      }
+    }
+
+    &--mobile {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+      display: flex;
+
+      & > *:not(:last-child) {
+        margin-bottom: 2rem;
+        margin-right: 0;
+      }
+
+      @include breakpoints(mq-l) {
+        display: none;
+      }
+    }
+  }
+
+  &__link {
+    font-size: $base-text;
+    text-decoration: none;
+    font-weight: 400;
+    font-family: $font-body;
+    display: inline-block;
+    text-transform: capitalize;
+    border-bottom: 2px solid transparent;
+
+    @include breakpoints(mq-3xl) {
+      font-size: $xl-text * 1.5;
+    }
+
+    &--mobile {
+      font-size: $xxl-text;
+    }
+
+    &--dark.nav__link--active {
+      border-color: $primary;
+    }
+
+    &--light.nav__link--active,
+    &--light.nav__link--mobile.nav__link--active {
+      border-color: $neutral;
+    }
+
+    &--dark {
+      color: $primary;
+      &:hover,
+      &:active {
+        border-color: $primary;
+      }
+    }
+
+    &--light {
+      color: $neutral;
+
+      &:hover,
+      &:active {
+        border-color: $neutral;
+      }
+    }
+  }
+
+  // mobile
+  &__mobile {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $secondary;
+    transform: translateX(-100%);
+    transition: transform 0.4s ease-in;
+    z-index: 99;
+    padding: 2rem;
+
+    @include breakpoints(mq-l) {
+      display: none;
+    }
+
+    &--isOpened {
+      transform: translateX(0);
+    }
+  }
+
+  &__cart {
+    &-icon {
+      height: 2.5rem;
+      width: 2.5rem;
+
+      path {
+        stroke: $neutral;
+      }
+
+      @include breakpoints(mq-l) {
+        display: none;
+      }
+    }
+
+    &-btn {
+      border: none;
+      outline: none;
+      background: transparent;
+      position: relative;
+      margin-right: 1rem;
+      display: flex;
+      align-items: center;
+
+      @include breakpoints(mq-l) {
+        margin-right: 0;
+      }
+
+      &-text {
+        display: none;
+        font-size: $base-text;
+        color: $neutral;
+
+        @include breakpoints(mq-l) {
+          display: block;
+        }
+
+        @include breakpoints(mq-3xl) {
+          font-size: $xl-text * 1.5;
+        }
+      }
+
+      .total {
+        font-size: $xs-text;
+        margin-left: 1rem;
+        padding: 0.25rem 0.5rem;
+        border-radius: 50%;
+        background: $gray;
+        position: absolute;
+        top: 1rem;
+        left: 0.5rem;
+        color: $primary;
+
+        @include breakpoints(mq-l) {
+          padding: 0.5rem 0.9rem;
+          position: unset;
+          top: unset;
+          left: unset;
+          font-size: $sm-text;
+        }
+
+        @include breakpoints(mq-3xl) {
+          font-size: $base-text * 1.5;
+          padding: calc(0.5rem * 1.5) calc(0.9rem * 1.5);
+        }
+      }
+
+      &--light {
+        .nav__cart-btn-text {
+          color: $neutral;
+        }
+      }
+
+      &--dark {
+        .nav__cart-btn-text {
+          color: $primary;
+        }
+
+        .total {
+          background: $primary;
+          color: $neutral;
+        }
+
+        .nav__cart-icon {
+          path {
+            stroke: $primary;
+          }
+        }
+      }
+    }
+  }
+}

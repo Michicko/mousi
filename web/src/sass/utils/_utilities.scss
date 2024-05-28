@@ -1,0 +1,53 @@
+@use '../abstract/variable' as *;
+
+
+
+@for $i from 1 through 10 {
+    .m-#{$i} {
+      padding: #{$i}rem;
+    }
+    .mb-#{$i} {
+      margin-bottom: #{$i}rem;
+    }
+    .mt-#{$i} {
+      margin-top: #{$i}rem;
+    }
+    .mx-#{$i} {
+      margin: 0 #{$i}rem;
+    }
+    .my-#{$i} {
+      margin: #{$i}rem 0;
+    }
+    .mr-#{$i} {
+      margin-right: #{$i}rem;
+    }
+    .p-#{$i} {
+      padding: #{$i}rem;
+    }
+    .pb-#{$i} {
+      padding-bottom: #{$i}rem;
+    }
+    .pt-#{$i} {
+      padding-top: #{$i}rem;
+    }
+    .pr-#{$i} {
+      padding-right: #{$i}rem;
+    }
+    .gap-#{$i} {
+      grid-gap: #{$i}rem;
+    }
+    .column-gap-#{$i} {
+      grid-column-gap: #{$i}rem;
+    }
+    .row-gap-#{$i} {
+      grid-row-gap: #{$i}rem;
+    }
+  }
+
+
+  .img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }

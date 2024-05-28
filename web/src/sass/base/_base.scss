@@ -1,0 +1,28 @@
+@use "../abstract/variable" as *;
+@use "../abstract/mixins" as *;
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+
+  &::-webkit-scrollbar {
+    background: transparent; /* Chrome/Safari/Webkit */
+    width: 0;
+  }
+}
+
+body {
+  font-family: $font-body;
+  font-size: $base-text;
+  line-height: $base-lh;
+}

@@ -1,0 +1,15 @@
+@use '../abstract/variable' as *;
+@use '../abstract/mixins' as *;
+
+
+.section{
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+
+    @include breakpoints(mq-l) {
+        padding-top: 8rem;
+        padding-bottom: 8rem;
+    }
+}

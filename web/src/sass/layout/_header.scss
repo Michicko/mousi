@@ -1,0 +1,94 @@
+@use "../abstract/variable" as *;
+@use "../abstract/mixins" as *;
+
+.header {
+  &.home {
+    background: $secondary;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    max-height: 64rem;
+  }
+
+  .landing {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem;
+    padding-top: 14rem;
+    overflow-x: hidden;
+
+    @include breakpoints(mq-sm) {
+      align-items: flex-end;
+    }
+
+    @include breakpoints(mq-2xl) {
+      padding-top: 14rem * 1.3;
+    }
+
+    @include breakpoints(mq-3xl) {
+      padding-top: 14rem * 1.4;
+    }
+
+    @include breakpoints(mq-4xl) {
+      padding-top: 14rem * 1.5;
+    }
+
+    &__box {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      max-height: 55rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;    
+      user-select: none;
+
+      @include breakpoints(mq-sm) {
+        justify-content: flex-end;
+      }
+   
+    }
+
+    &__img {
+
+      &-box{
+        height: 30rem;
+        width: 22rem;
+        position: relative;
+        margin-bottom: 3rem;
+      }
+
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: relative;
+      object-fit: cover;
+      object-position: center;
+     
+    }
+
+    &__heading{
+      position: absolute;
+      left: 50%;
+      transform: translateX(-70%);
+      z-index: 40;
+      top: -2.5rem;
+
+      @include breakpoints(mq-sm) {
+        top: -3rem;
+      }
+      @include breakpoints(mq-2xl) {
+        top: -3.5rem;
+      }
+    }
+  }
+}

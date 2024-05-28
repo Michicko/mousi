@@ -1,0 +1,21 @@
+@use "../abstract/variable" as *;
+@use "../abstract/mixins" as *;
+
+.container {
+  padding: 0 2rem;
+  @each $key, $val in $queries {
+    @include breakpoints(#{$key}) {
+        padding: 0 calc(2rem * #{$val});
+    }
+  }
+
+  &--sm{
+    padding-right: 0;
+    padding-left: 0;
+    @each $key, $val in $sm-container-spacings {
+      @include breakpoints(#{$key}) {
+          padding-left: calc(2rem * #{$val});
+      }
+    }
+  }
+}
