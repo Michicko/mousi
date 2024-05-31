@@ -62,6 +62,6 @@ $breakpoints: (
   "mq-4xl": "(min-width: #{$bp-4xl})",
   "mq-retina": "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)"
 );
-$queries: ("mq-md": 4, "mq-l":4.5, "mq-xl":5, "mq-2xl":5.5, "mq-3xl":6, "mq-4xl":6.5);
+$queries: ("mq-md": 3.5, "mq-l":4, "mq-xl":4.5, "mq-2xl":5, "mq-3xl":5.5, "mq-4xl":6);
 
 $sm-container-spacings: ("mq-sm": 3, "mq-md": 3.5, "mq-l":4, "mq-xl":4.5, "mq-2xl":5, "mq-3xl":5.5, "mq-4xl":6);

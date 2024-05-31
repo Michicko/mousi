@@ -22,11 +22,11 @@ export default function Nav({ pathname }: NavProps) {
     function resetNav() {
       if (window.innerWidth >= 768) {
         if (!isSidebarOpened) return;
+        console.log(isSidebarOpened);
         closeSidebar();
       }
     }
-    
-    
+
     window.addEventListener("resize", resetNav);
 
     return () => {
@@ -35,19 +35,35 @@ export default function Nav({ pathname }: NavProps) {
   }, [isSidebarOpened]);
 
   useEffect(() => {
-    if(isSidebarOpened){
-      document.body.style.overflow = 'hidden';
-    }else{
-      document.body.style.overflow = 'unset';
+    if (isSidebarOpened) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
     }
-  }, [isSidebarOpened])
+  }, [isSidebarOpened]);
+
+  const getNavButtonClassList = (
+    pathname: string
+  ): string => {
+    let defaultClass = "nav__menu-btn";
+
+    if (isSidebarOpened) {
+      defaultClass += " nav__menu-btn--isOpened";
+    }
+
+    if (pathname == "/") {
+      defaultClass += " nav__menu-btn--light";
+    } else {
+      defaultClass += " nav__menu-btn--dark";
+    }
+
+    return defaultClass;
+  };
 
   return (
     <nav className="nav container">
       <button
-        className={`${
-          isSidebarOpened ? "nav__menu-btn nav__menu-btn--isOpened" : "nav__menu-btn"
-        }`}
+        className={getNavButtonClassList(pathname)}
         onClick={toggleSidebar}
         role="button"
         tabIndex={0}

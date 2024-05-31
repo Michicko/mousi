@@ -1,0 +1,224 @@
+@use "../abstract/variable" as *;
+@use "../abstract/mixins" as *;
+
+@mixin defaultLink {
+  font-size: $base-text;
+  color: $neutral;
+  font-weight: 400;
+  text-decoration: none;
+  outline: none;
+  border: none;
+
+  @media only screen and (min-width: 1768px) {
+    font-size: $base-text * 1.2;
+  }
+
+  @include breakpoints(mq-4xl) {
+    font-size: $base-text * 1.3;
+  }
+}
+
+.footer {
+  width: 100%;
+  background: $secondary;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  display: grid;
+  grid-row-gap: 4rem;
+  justify-content: flex-start;
+
+  @include breakpoints(mq-l) {
+    grid-template-columns: auto auto;
+    grid-template-rows: repeat(3, min-content);
+    justify-content: space-between;
+    grid-row-gap: 6rem;
+    grid-template-areas:
+      "mail links"
+      "btn btn"
+      "copy copy";
+
+    & > *:first-child {
+      grid-area: mail;
+    }
+
+    & > *:nth-child(2) {
+      grid-area: links;
+    }
+
+    & > *:nth-child(3) {
+      grid-area: btn;
+    }
+    & > *:nth-child(4) {
+      grid-area: copy;
+    }
+  }
+
+  &__title {
+    font-size: $base-text;
+    color: $gray;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    text-transform: capitalize;
+
+    @media only screen and (min-width: 1768px) {
+      font-size: $base-text * 1.2;
+    }
+
+    @include breakpoints(mq-4xl) {
+      font-size: $base-text * 1.3;
+    }
+  }
+
+  &__mail {
+    @include defaultLink();
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid $neutral;
+  }
+
+  &__link {
+    @include defaultLink();
+    text-transform: capitalize;
+
+    &--sm {
+      font-size: $sm-text;
+      @media only screen and (min-width: 1768px) {
+        font-size: $sm-text * 1.2;
+      }
+
+      @include breakpoints(mq-4xl) {
+        font-size: $sm-text * 1.3;
+      }
+    }
+  }
+
+  &__text,
+  &__copy {
+    @include defaultLink();
+    color: $gray;
+    font-size: $sm-text;
+  }
+
+  @media only screen and (min-width: 1768px) {
+    padding-top: 5rem * 1.4;
+    padding-bottom: 5rem * 1.4;
+    grid-row-gap: 6rem * 1.3;
+
+    &__title {
+      margin-bottom: 1rem * 1.3;
+    }
+
+    &__text,
+    &__copy {
+      font-size: $sm-text * 1.4;
+    }
+  }
+
+  @include breakpoints(mq-4xl) {
+    padding-top: 5rem * 1.5;
+    padding-bottom: 5rem * 1.5;
+    grid-row-gap: 6rem * 1.4;
+    &__title {
+      margin-bottom: 1rem * 1.4;
+    }
+    &__text,
+    &__copy {
+      font-size: $sm-text * 1.5;
+    }
+  }
+
+  &__box {
+    &--grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-row-gap: 4rem;
+    }
+
+    @include breakpoints(mq-l) {
+      &--grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 6rem;
+      }
+
+      &--flex {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    @media only screen and (min-width: 1768px) {
+      &--grid {
+        grid-column-gap: 6rem * 1.4;
+      }
+    }
+
+    @include breakpoints(mq-4xl) {
+      &--grid {
+        grid-column-gap: 6rem * 1.5;
+      }
+    }
+  }
+
+  &__copy {
+    margin-bottom: 2rem;
+    color: $neutral;
+
+    @include breakpoints(mq-l) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__inner-box {
+    display: flex;
+    flex-direction: column;
+
+    & > *:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+
+    &--flex {
+      display: flex;
+      flex-direction: column;
+
+      & > *:first-child {
+        margin-bottom: 2rem;
+      }
+
+      @include breakpoints(mq-l) {
+        flex-direction: row;
+        align-items: center;
+
+        & > *:first-child {
+          margin-bottom: 0;
+
+          margin-right: 2rem;
+        }
+      }
+
+      @media only screen and (min-width: 1768px) {
+        & > *:first-child {
+          margin-right: 2rem * 1.4;
+        }
+      }
+
+      @include breakpoints(mq-4xl) {
+        & > *:first-child {
+          margin-right: 2rem * 1.5;
+        }
+      }
+    }
+  }
+
+  &__btn {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: $base-text;
+    color: $neutral;
+    display: inline-block;
+    min-width: 8rem;
+    justify-self: start;
+    padding: 0;
+    cursor: pointer;
+  }
+}

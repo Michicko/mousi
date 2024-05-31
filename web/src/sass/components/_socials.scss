@@ -1,0 +1,124 @@
+@use "../abstract/variable" as *;
+@use "../abstract/mixins" as *;
+
+.socials {
+  width: 100%;
+  position: relative;
+
+  &__section{
+    @include breakpoints(mq-l) {
+      min-height: 50rem !important;
+    }
+
+    @media only screen and (min-width: 1768px) {
+      min-height: 40vmax !important;
+    }
+  }
+
+  &__slider {
+    position: relative;
+    width: 100%;
+
+    @include breakpoints(mq-l) {
+      position: absolute;
+      top: 10rem;
+      left: 0;
+      right: 0;
+      height: 25rem;
+    }
+    @media only screen and (min-width: 1768px) {
+      height: 25vmax;
+    }
+  }
+
+  &__sliders {
+
+    @include breakpoints(mq-l) {
+        
+    }
+  }
+
+  &__slides {
+    display: flex;
+    flex-direction: column;
+
+    & > *:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+
+    @include breakpoints(mq-l) {
+        flex-direction: row;
+        align-items: center;
+        height: 25rem;
+        user-select: none;
+
+        & > *:not(:last-child) {
+            margin-bottom: 0;
+            margin-right: 3rem;
+          }
+    }
+
+    @media only screen and (min-width: 1768px) {
+      height: 25vmax;
+      
+      & > *:not(:last-child) {
+        margin-right: 4rem;
+      }
+    }
+  }
+
+  &__slide {
+    width: 100%;
+    flex-shrink: 0;
+    display: flex;
+
+    &-img{
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    &--center {
+        text-align: center;
+    }
+
+    &--left, &--right{
+        .socials__slide-img{
+            width: 60%;
+        }
+    }
+
+    &--left {
+        justify-content: flex-start;
+        text-align: start;
+    }
+
+    &--right {
+        text-align: end;
+        justify-content: flex-end;
+    }
+
+    @include breakpoints(mq-l) {
+        height: 25rem;
+        width: 20rem;
+
+        &--center, &--left, &--right{
+            .socials__slide-img{
+                object-fit: cover;
+                object-position: center;
+                height: 100%;
+                width: 100%;
+            }
+            
+        }
+    }
+
+    
+  @media only screen and (min-width: 1768px) {
+    height: 25vmax;
+    width: 20vmax;
+  }
+  }
+}

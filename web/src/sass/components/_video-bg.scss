@@ -1,0 +1,40 @@
+@use '../abstract/variable' as *;
+@use '../abstract/mixins' as *;
+
+.video{
+
+    &__box{
+        min-height: 30rem;
+        height: 100%;
+        width: 100%;
+        position: relative;
+        margin-top: 5rem;
+        margin-bottom: 3rem;
+
+        @include breakpoints(mq-l) {
+            height: 50rem;
+        }
+
+        @media only screen and (min-width: 1768px) {
+            height: 50rem * 1.4;
+            margin-top: 5rem * 1.5;
+            margin-bottom: 3rem * 1.5;
+          }
+        
+          @include breakpoints(mq-4xl) {
+            height: 50rem * 1.5;
+            margin-top: 5rem * 1.6;
+            margin-bottom: 3rem * 1.6;
+          }
+    }
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}   

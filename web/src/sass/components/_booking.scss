@@ -1,0 +1,149 @@
+@use "../abstract/variable" as *;
+@use "../abstract/mixins" as *;
+
+.booking {
+  width: 100%;
+  display: grid;
+
+  @include breakpoints(mq-l) {
+    position: relative;
+
+    & > *:nth-child(3) {
+      @include breakpoints(mq-l) {
+      }
+    }
+
+    & > *:nth-child(4) {
+      grid-area: btn;
+    }
+  }
+
+  &__box {
+    
+    @include breakpoints(mq-l) {
+      width: calc(55% - 4rem);
+      position: absolute;
+      top: 5rem;
+      z-index: 50;
+    }
+
+    @media only screen and (min-width: 1768px) {
+      top: 5rem * 1.4;
+    }
+
+    @include breakpoints(mq-4xl) {
+      top: 5rem * 1.5;
+    }
+  }
+
+  &__text-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+
+    & > *:nth-child(2) {
+      display: none;
+    }
+
+    @include breakpoints(mq-l) {
+      
+        & > *:nth-child(2) {
+            display: block;
+          }
+
+          max-width: 85%;
+      }
+  }
+
+  & > *:last-child {
+    margin: 0 auto;
+    @include breakpoints(mq-l) {
+      display: none;
+    }
+  }
+
+  &__img-box {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(10, 10%);
+    grid-template-rows: repeat(11, 6vmax);
+    margin-bottom: 3rem;
+
+    @include breakpoints(mq-sm) {
+      grid-template-rows: repeat(11, 5rem);
+    }
+
+    @include breakpoints(mq-md) {
+      grid-template-rows: repeat(11, 6rem);
+    }
+
+    @include breakpoints(mq-l) {
+      grid-template-columns: calc(60% - 4rem) 40%;
+      grid-column-gap: 4rem;
+      grid-template-rows: unset;
+      align-items: flex-end;
+    }
+
+    @media only screen and (min-width: 1768px) {
+      grid-template-columns: calc(60% - calc(4rem * 1.4)) 40%;
+      grid-column-gap: calc(4rem * 1.4);
+    }
+
+    @include breakpoints(mq-4xl) {
+      grid-template-columns: calc(60% - calc(4rem * 1.5)) 40%;
+      grid-column-gap: calc(4rem * 1.5);
+    }
+  }
+
+  &__img {
+    height: 100%;
+    width: 100%;
+
+    &--sm {
+      z-index: 5;
+      grid-column-start: 1;
+      grid-column-end: 5;
+      grid-row-start: 6;
+      grid-row-end: -1;
+
+      @include breakpoints(mq-l) {
+        grid-column-start: unset;
+        grid-column-end: unset;
+        grid-row-start: unset;
+        grid-row-end: unset;
+        height: 28vmax;
+        width: 22vmax;
+        justify-self: flex-end;
+        order: 1;
+      }
+    }
+
+    &--main {
+      z-index: 4;
+      grid-column-start: 4;
+      grid-column-end: -1;
+      grid-row-start: 1;
+      grid-row-end: 11;
+
+      @include breakpoints(mq-l) {
+        grid-column-start: unset;
+        grid-column-end: unset;
+        grid-row-start: unset;
+        grid-row-end: unset;
+        order: 2;
+        height: calc(100% - 10vmax);
+        width: 100%;
+        align-self: flex-start;
+      }
+    }
+  }
+
+  & > *:last-child {
+    justify-self: center;
+
+    @include breakpoints(mq-l) {
+      justify-self: flex-start;
+    }
+  }
+}

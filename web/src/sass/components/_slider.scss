@@ -1,0 +1,24 @@
+@use '../abstract/variable' as *;
+@use '../abstract/mixins' as *;
+
+
+.slider{
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+
+
+    &__box{
+        overflow-x: auto;
+        @include hideScrollBar();
+    }   
+
+    &__slides{
+        transition: transform .3s ease-in;
+
+        &.active{
+            cursor: grabbing;
+            transform: scale(.99);
+        }
+    }
+}

@@ -1,0 +1,57 @@
+@use "../abstract/variable" as *;
+@use "../abstract/mixins" as *;
+
+.subscription {
+  padding-left: 0;
+  padding-right: 0;
+  margin-bottom: 3rem;
+
+  @each $key, $val in $queries {
+    @include breakpoints(#{$key}) {
+      padding-right: calc(2rem * #{$val});
+      padding-left: calc(2rem * #{$val});
+    }
+  }
+
+  @include breakpoints(mq-l) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 5rem auto;
+    grid-template-areas:
+      "img title"
+      "img form";
+    grid-column-gap: 5rem;
+    align-items: flex-start;
+  }
+
+  &__img {
+    display: none;
+
+    @include breakpoints(mq-l) {
+      display: block;
+      grid-area: img;
+    }
+  }
+
+  & > *:nth-child(2) {
+    @include breakpoints(mq-l) {
+      grid-area: title;
+      margin-top: -4rem;
+    }
+  }
+
+  &__form {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 3rem;
+    justify-items: center;
+
+    & > *:last-child {
+      margin-top: 1rem;
+    }
+
+    @include breakpoints(mq-l) {
+      justify-items: flex-start;
+    }
+  }
+}

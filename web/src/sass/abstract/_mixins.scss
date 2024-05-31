@@ -11,3 +11,17 @@
     }
 }
 
+
+@mixin hideScrollBar{
+    
+    /* Firefox */
+    scrollbar-width: none;
+    /* IE 10+ */
+    -ms-overflow-style: none;
+  
+    /* Chrome/Safari/Webkit */
+    &::-webkit-scrollbar {
+      background: transparent;
+      width: 0;
+    }
+  }

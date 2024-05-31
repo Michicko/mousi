@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function StudioIntro() {
   return (
     <div className="studio-intro">
-      <h2 className="heading heading__secondary mb-3">
+      <h2 className="heading heading__secondary mb-2">
         <span>Buying my</span>
         <span>Unique pottery</span>
       </h2>

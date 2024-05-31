@@ -10,7 +10,7 @@ interface NavLinksProps{
   pathname: string;
   links: Array<LinkProps>;
   isMobile: boolean;
-  cb?:MouseEventHandler<HTMLAnchorElement>;
+  cb?:() => void;
 }
 
 export default function NavLinks({ pathname, links, isMobile, cb }: NavLinksProps) {

@@ -1,0 +1,64 @@
+@use '../abstract/variable' as *;
+@use '../abstract/mixins' as *;
+
+
+.form{
+    
+
+    &__group{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        height: 4rem;
+        border-bottom: 1px solid transparent;
+
+        &--dark{
+            border-color: $primary;
+        }
+
+        &--light{
+            border-color: $neutral;
+        }
+    }
+
+    &__label{
+        font-size: $base-text;
+        color: $primary;
+        flex-shrink: 0;
+        
+    }
+
+
+    &__input{
+        border: none;
+        background: transparent;
+        outline: none;
+        height: 100%;
+        width: 100%;
+        border-bottom: 1px solid transparent;
+        height: 4rem;
+        
+        &--dark{
+            border-color: $primary;
+        }
+
+        &--light{
+            border-color: $neutral;
+        }
+
+        &::placeholder{
+            font-size: $base-text;
+            color: $primary;
+            flex-shrink: 0;
+        }
+
+        
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0px 1000px $gray inset !important;
+        -webkit-text-fill-color: $primary !important;
+    }
+    }
+}

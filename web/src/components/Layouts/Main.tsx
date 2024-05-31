@@ -1,8 +1,11 @@
+import React from "react";
 
-export default function Main({children}) {
+interface MainProps {
+  children: React.ReactNode;
+}
+
+export default function Main(props: MainProps) {
   return (
-    <main className="main">
-        {children}
-    </main>
+    <main className="main">{props.children}</main>
   )
 }

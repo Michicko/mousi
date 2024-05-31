@@ -5,17 +5,26 @@
   padding: 0 2rem;
   @each $key, $val in $queries {
     @include breakpoints(#{$key}) {
-        padding: 0 calc(2rem * #{$val});
+      padding: 0 calc(2rem * #{$val});
     }
   }
 
-  &--sm{
+  &--sm {
     padding-right: 0;
     padding-left: 0;
     @each $key, $val in $sm-container-spacings {
       @include breakpoints(#{$key}) {
-          padding-left: calc(2rem * #{$val});
+        padding-left: calc(2rem * #{$val});
       }
+    }
+  }
+
+  &--xs {
+    padding-right: 0;
+    padding-left: 0;
+
+    @include breakpoints(mq-l) {
+      padding-left: 3rem;
     }
   }
 }

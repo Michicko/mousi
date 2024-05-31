@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 
-export default function AboutIntro() {
+interface AboutIntroProps {
+  showBtn: boolean;
+}
+
+export default function AboutIntro({ showBtn }: AboutIntroProps) {
   return (
     <div className="about-intro">
       <div className="about-intro__left-box">
@@ -44,9 +48,11 @@ export default function AboutIntro() {
           forming and glazing. It is always exciting when i open my kiln after
           firing!
         </p>
-        <Link to="/about" className="btn btn__primary">
-          Read more
-        </Link>
+        {showBtn && (
+          <Link to="/about" className="btn btn__primary">
+            Read more
+          </Link>
+        )}
       </div>
     </div>
   );
